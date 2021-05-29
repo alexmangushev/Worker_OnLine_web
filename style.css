@@ -8,16 +8,6 @@ body {
     font-family: 'Roboto Slab', serif;
 }
 
-.container {
-    width: 100%;
-    max-width: 1170px;
-    text-align: center;
-    
-    margin: 0 auto;
-    color: white;
-
-}
-
 /*
 ==================
     header
@@ -28,7 +18,7 @@ body {
     width: 100%;
     height: 80px;
     /*padding: 0 0 10px;*/
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
@@ -52,7 +42,7 @@ body {
 
 .nav {
     display: flex;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .nav__link {
@@ -61,7 +51,7 @@ body {
     text-transform: uppercase;
     text-decoration: none;
 
-    opacity: .75;
+    opacity: .8;
     transition: opacity .1s linear;
 }
 
@@ -101,6 +91,49 @@ body {
     text-transform: uppercase;
 }
 
+.container {
+    width: 100%;
+    max-width: 1170px;
+    text-align: center;
+    
+    margin: 0 auto;
+}
+
+#container_mod {
+    border-bottom: 1px solid darkslategrey;
+    border-top: 1px solid darkslategrey;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+/*
+==================
+    styles for name of parts of page
+==================
+*/
+.inner {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+.title {
+    margin: 5px;
+}
+
+
+
+/*
+==================
+    about product
+==================
+*/
+
+.about_product {
+    margin: 5px;
+    color: darkslategrey;
+}
 
 /*
 ==================
@@ -109,20 +142,14 @@ body {
 */
 .demo {
     margin: 5px;
-}
-
-#container_demo {
-    border-bottom: 1px solid darkslategrey;
-    border-top: 1px solid darkslategrey;
+    color: darkslategrey;
+    
 }
 
 .demo_discription {
-    color: darkslategrey;
     margin: 10px;
 
     font-size: 15px;
-
-    
 }
 
 .buttons {
@@ -151,15 +178,52 @@ body {
     opacity: 1;
 }
 
+/*
+==================
+    about_us
+==================
+*/
+
+.about_us {
+    margin: 5px;
+    color: darkslategrey;
+}
+
+
+/*
+==================
+    contacts
+==================
+*/
+
+.contacts {
+    margin: 5px;
+    color: darkslategrey;
+}
+
+.map {
+    max-width: 1170px;
+    margin: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.address {
+    margin: 70px;
+    text-align: center;
+    padding: 30px;
+}
+
 
 /*
 ==================
     mobile
 ==================
 */
-@media (max-width: 840px) {
+@media (max-width: 855px) {
     .header {
         height: 140px;
+        position: absolute;
     }
 
     .header__inner {
@@ -185,6 +249,16 @@ body {
 
     .btn {
         max-width: 100px;
+    }
+
+    .address {
+        margin: 20px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .map {
+        flex-direction: column;
     }
 
 } 
