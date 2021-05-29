@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 *, *:before, *:after {
@@ -16,8 +16,7 @@ body {
 
 .header {
     width: 100%;
-    height: 80px;
-    /*padding: 0 0 10px;*/
+    height: 60px;
     position: fixed;
     top: 0;
     left: 0;
@@ -28,7 +27,7 @@ body {
 .header__inner {
     display: flex;
     justify-content: space-between;
-    padding: 15px 10px;
+    padding: 5px;
     /*border-bottom: 1px solid darkslategrey;*/
     align-items: center;
 }
@@ -119,7 +118,7 @@ body {
 }
 
 .title {
-    margin: 5px;
+    margin: 10px;
 }
 
 
@@ -131,8 +130,21 @@ body {
 */
 
 .about_product {
-    margin: 5px;
+    margin: 50px 10px;
     color: darkslategrey;
+}
+
+.product_discription {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.discription_1 {
+    width: 40%;
+    text-align: justify
+    ;
 }
 
 /*
@@ -141,14 +153,14 @@ body {
 ==================
 */
 .demo {
-    margin: 5px;
+    margin: 50px 10px;
     color: darkslategrey;
     
 }
 
 .demo_discription {
     margin: 10px;
-
+    text-align: justify;
     font-size: 15px;
 }
 
@@ -185,7 +197,7 @@ body {
 */
 
 .about_us {
-    margin: 5px;
+    margin: 50px 10px;
     color: darkslategrey;
 }
 
@@ -197,21 +209,20 @@ body {
 */
 
 .contacts {
-    margin: 5px;
+    margin: 50px 10px;
     color: darkslategrey;
 }
 
 .map {
     max-width: 1170px;
-    margin: 10px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .address {
-    margin: 70px;
-    text-align: center;
-    padding: 30px;
+    margin: 5px;
 }
 
 
@@ -242,8 +253,15 @@ body {
         padding-top: 140px;
     }
 
+    .product_discription {
+        flex-direction: column;
+    }
+
+    .discription_1 {
+        width: 80%;
+    }
+
     .buttons {
-        display: flex;
         flex-direction: column;
     }
 
@@ -253,7 +271,7 @@ body {
 
     .address {
         margin: 20px;
-        text-align: center;
+        align-items: center;
         padding: 10px;
     }
 
