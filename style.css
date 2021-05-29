@@ -1,0 +1,190 @@
+body {
+    margin: 0;
+    font-size: 14px;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1170px;
+    text-align: center;
+    
+    margin: 0 auto;
+    color: white;
+
+}
+
+/*
+==================
+    header
+==================
+*/
+
+.header {
+    width: 100%;
+    height: 80px;
+    /*padding: 0 0 10px;*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: white;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10px;
+    /*border-bottom: 1px solid darkslategrey;*/
+    align-items: center;
+}
+
+
+/*
+==================
+    nav
+==================
+*/
+
+.nav {
+    display: flex;
+    font-size: 13px;
+}
+
+.nav__link {
+    margin-left: 45px;
+    color: darkslategrey;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    opacity: .75;
+    transition: opacity .1s linear;
+}
+
+.nav__link:hover {
+    opacity: 1;
+}
+
+/*
+==================
+    intro
+==================
+*/
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height: 500px;
+    padding-top: 80px;
+
+    background: url("images/backgrounds/ceh.jpeg") center no-repeat;
+    filter: brightness(45%);
+    text-align: center;
+}
+
+.intro__inner {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.intro__title {
+    color: white;
+    font-size: 37px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+
+/*
+==================
+    demo
+==================
+*/
+.demo {
+    margin: 5px;
+}
+
+#container_demo {
+    border-bottom: 1px solid darkslategrey;
+    border-top: 1px solid darkslategrey;
+}
+
+.demo_discription {
+    color: darkslategrey;
+    margin: 10px;
+
+    font-size: 15px;
+
+    
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    align-items: center;
+
+
+}
+
+.btn {
+
+    background: rgb(56, 83, 83);
+    color: rgb(228, 228, 228);
+    margin: 10px;
+
+    opacity: .9;
+    transition: opacity .1s linear;
+
+    border-radius: 5px;
+}
+
+.btn:hover {
+    opacity: 1;
+}
+
+
+/*
+==================
+    mobile
+==================
+*/
+@media (max-width: 840px) {
+    .header {
+        height: 140px;
+    }
+
+    .header__inner {
+        flex-direction: column;
+    }
+
+    .nav {
+        flex-direction: column;
+    }
+
+    .nav__link {
+        margin-left: 0px;
+    }
+
+    .intro {
+        padding-top: 140px;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btn {
+        max-width: 100px;
+    }
+
+} 

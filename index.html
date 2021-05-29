@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker_OnLine</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+<header class="header">
+    <div class="container">
+        <div class="header__inner">
+
+            <div class="header__logo">
+                <img src="images/worker_online logo.png" alt="">
+            </div>
+
+            <nav class="nav">
+                <a class="nav__link" href="#">О продукте</a>
+                <a class="nav__link" href="#">Демонстрация</a>
+                <a class="nav__link" href="#">О Нас</a>
+                <a class="nav__link" href="#">Контакты</a>
+            </nav>
+
+        </div>
+    </div> 
+</header>
+
+<!-- intro -->
+<div class="intro">
+    <div class="container">
+
+        <div class="intro__inner">
+            <h1 class="intro__title">Улучшите безопасность своих подчиненных</h1>
+        </div>
+
+    </div>
+</div>
+
+<!-- about product -->
+<div class="about_product">
+    <div class="container">
+
+    </div>
+</div>
+
+<!-- demo -->
+<div class="demo">
+    <div class="container" id="container_demo">
+
+        <div class="demo_discription">
+            <p>
+                Здесь вы можете проверить работу собранного на данный момент прототипа.
+                При нажатии на кнопку "включить" светодиод на макете начнет светиться.
+                Если же Вы нажмете кнопку "выключить", то он потухнет.
+            </p>
+
+            <p>
+                Данный функционал реализован при помощи протокола передачи MQTT.
+                В качестве брокера используется публичный брокер broker.hivemq.com,
+                TCP порт: 1883, топик scooter1. При нажатии кнопок в этот топик 
+                отправляются сообщения "on" или "of".
+            </p>
+
+        </div>
+
+
+        <div class="buttons">
+
+            <button class="btn" id="btn_on">
+                Включить светодиод
+            </button>
+    
+    
+            <button class="btn" id="btn_off">
+                Выключить светодиод
+            </button>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- about us -->
+<div class="about_us">
+    <div class="container">
+
+    </div>
+</div>
+
+<!-- contacts -->
+<div class="contacts">
+    <div class="container">
+        
+    </div>
+</div>
+
+
+</body>
+</html>
