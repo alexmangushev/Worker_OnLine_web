@@ -1,21 +1,11 @@
 body {
     margin: 0;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 *, *:before, *:after {
     box-sizing: border-box;
     font-family: 'Roboto Slab', serif;
-}
-
-.container {
-    width: 100%;
-    max-width: 1170px;
-    text-align: center;
-    
-    margin: 0 auto;
-    color: white;
-
 }
 
 /*
@@ -26,9 +16,8 @@ body {
 
 .header {
     width: 100%;
-    height: 80px;
-    /*padding: 0 0 10px;*/
-    position: absolute;
+    height: 60px;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
@@ -38,7 +27,7 @@ body {
 .header__inner {
     display: flex;
     justify-content: space-between;
-    padding: 15px 10px;
+    padding: 5px;
     /*border-bottom: 1px solid darkslategrey;*/
     align-items: center;
 }
@@ -52,7 +41,7 @@ body {
 
 .nav {
     display: flex;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .nav__link {
@@ -61,7 +50,7 @@ body {
     text-transform: uppercase;
     text-decoration: none;
 
-    opacity: .75;
+    opacity: .8;
     transition: opacity .1s linear;
 }
 
@@ -81,7 +70,7 @@ body {
     justify-content: center;
 
     height: 500px;
-    padding-top: 80px;
+    padding-top: 60px;
 
     background: url("images/backgrounds/ceh.jpeg") center no-repeat;
     filter: brightness(45%);
@@ -101,6 +90,62 @@ body {
     text-transform: uppercase;
 }
 
+.container {
+    width: 100%;
+    max-width: 1170px;
+    text-align: center;
+    
+    margin: 0 auto;
+}
+
+#container_mod {
+    border-bottom: 1px solid darkslategrey;
+    border-top: 1px solid darkslategrey;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+/*
+==================
+    styles for name of parts of page
+==================
+*/
+.inner {
+    width: 100%;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+.title {
+    margin: 10px;
+}
+
+
+
+/*
+==================
+    about product
+==================
+*/
+
+.about_product {
+    margin: 50px 10px;
+    color: darkslategrey;
+}
+
+.product_discription {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.discription_1 {
+    width: 40%;
+    text-align: justify
+    ;
+}
 
 /*
 ==================
@@ -108,21 +153,15 @@ body {
 ==================
 */
 .demo {
-    margin: 5px;
-}
-
-#container_demo {
-    border-bottom: 1px solid darkslategrey;
-    border-top: 1px solid darkslategrey;
+    margin: 50px 10px;
+    color: darkslategrey;
+    
 }
 
 .demo_discription {
-    color: darkslategrey;
     margin: 10px;
-
+    text-align: justify;
     font-size: 15px;
-
-    
 }
 
 .buttons {
@@ -151,15 +190,102 @@ body {
     opacity: 1;
 }
 
+/*
+==================
+    about_us
+==================
+*/
+
+.about_us {
+    margin: 50px 10px;
+    color: darkslategrey;
+}
+
+#container_mod_1 {
+    border-bottom: 1px solid darkslategrey;
+    border-top: 1px solid darkslategrey;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.we {
+    display: grid;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    --cols-num: 4;
+    grid-template-columns: repeat(var(--cols-num), 230px);
+    grid-template-rows: auto;
+    column-gap: 1rem;
+    row-gap: 1rem;
+}
+
+.member_card {
+    height: 290px;
+    border: 2px solid darkslategrey;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.member_card img {
+    width: auto;
+    border-radius: 5px;
+}
+
+
+/*
+==================
+    contacts
+==================
+*/
+
+.contacts {
+    margin: 50px 10px;
+    color: darkslategrey;
+}
+
+.map {
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.address {
+    margin: 5px;
+}
+
 
 /*
 ==================
     mobile
 ==================
 */
-@media (max-width: 840px) {
+@media (min-width: 577px) and (max-width: 992px) {
+    .we {
+        --cols-num: 2;
+    }
+}
+
+@media (max-width: 580px) {
+    .we {
+        --cols-num: 1;
+    }
+}
+@media (max-width: 855px) {
     .header {
         height: 140px;
+        position: absolute;
     }
 
     .header__inner {
@@ -178,13 +304,30 @@ body {
         padding-top: 140px;
     }
 
+    .product_discription {
+        flex-direction: column;
+    }
+
+    .discription_1 {
+        width: 80%;
+    }
+
     .buttons {
-        display: flex;
         flex-direction: column;
     }
 
     .btn {
         max-width: 100px;
+    }
+
+    .address {
+        margin: 20px;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .map {
+        flex-direction: column;
     }
 
 } 

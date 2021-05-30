@@ -21,10 +21,10 @@
             </div>
 
             <nav class="nav">
-                <a class="nav__link" href="#">О продукте</a>
-                <a class="nav__link" href="#">Демонстрация</a>
-                <a class="nav__link" href="#">О Нас</a>
-                <a class="nav__link" href="#">Контакты</a>
+                <a class="nav__link" href="#about_product_page" id="product">О продукте</a>
+                <a class="nav__link" href="#demo_page" id="demo">Демонстрация</a>
+                <a class="nav__link" href="#about_page" id="about">О Нас</a>
+                <a class="nav__link" href="#contacts_page" id="contacts">Контакты</a>
             </nav>
 
         </div>
@@ -43,16 +43,43 @@
 </div>
 
 <!-- about product -->
-<div class="about_product">
-    <div class="container">
+<div class="about_product" id="about_product_page">
+    <div class="container" id="container_mod">
+        
+        <div class="inner">
+            <h2 class="title">О продукте</h2>
+        </div>
+
+
+        <div class="product_discription">
+            <p class="discription_1">
+                Основная цель проекта – разработка устройства, контролирующего 
+                жизненные показатели работника на опасных производствах и 
+                осуществляющего сбор и передачу сопутствующей информации.
+                <br><br>
+                С развитием общества и новых технологий происходит постепенное изменение производственной сферы. Большую часть работ, являющихся вредными и опасными для человека сейчас стараются передать роботам и дистанционно управляемым системам. Однако человек все еще продолжает оставаться важным контролирующим звеном. Поскольку присутствует множество технически сложных устройств, то соответствующий специалист должен обладать большим числом знаний и заменить его другим будет сложно, от чего необходимо более строго относиться к его сохранности на предприятии, для чего может послужить система, которую мы хотим разработать. 
+            </p>
+
+            <p class="discription_1">
+                Система должна состоять из двух ключевых узлов: носимое устройство и серверная программа.
+                <br><br>Носимое устройство – небольшая коробка, которую можно закрепить на поясе. К ней посредством Bluetooth подключается браслет, который несет в себе часть сенсоров. Браслет закрепляется на руке носителя. 
+                <br><br>Браслет может содержать в себе пульсоксиметр, датчик температуры тела, датчик окружающей температуры. Кроме того, на нем можно разместить небольшой дисплей для вывода важной информации. Конструкция браслета должна предполагать, что часть перечисленного выше оборудования может быть не установлена по согласованию с заказчиком. К необязательному относится датчик температуры окружающей среды и пульсоксиметр. Кроме того, должна быть возможность полного отказа от использования браслета, если он не нужен заказчику.
+
+            </p>
+
+        </div>
 
     </div>
 </div>
 
 <!-- demo -->
-<div class="demo">
-    <div class="container" id="container_demo">
+<div class="demo" id="demo_page">
+    <div class="container" id="container_mod">
 
+        <div class="inner">
+            <h2 class="title">Демонстрация</h2>
+        </div>
+        
         <div class="demo_discription">
             <p>
                 Здесь вы можете проверить работу собранного на данный момент прототипа.
@@ -63,8 +90,8 @@
             <p>
                 Данный функционал реализован при помощи протокола передачи MQTT.
                 В качестве брокера используется публичный брокер broker.hivemq.com,
-                TCP порт: 1883, топик scooter1. При нажатии кнопок в этот топик 
-                отправляются сообщения "on" или "of".
+                TCP порт: 1883, топик scooter1. При нажатии одной из кнопок 
+                в этот топик отправляется сообщение ";on" или ";of".
             </p>
 
         </div>
@@ -87,19 +114,73 @@
 </div>
 
 <!-- about us -->
-<div class="about_us">
-    <div class="container">
+<div class="about_us" id="about_page">
+    <div class="container" id="container_mod_1">
+        
+        <div class="inner">
+            <h2 class="title">О нас</h2>
+        </div>
+
+        <div class="we">
+
+            <div class="member_card">
+                <img src="/images/team_img/Александр_1.jpg" alt="">
+                <p>
+                    Александр
+                    <br>Инженер-программист
+                </p>
+            </div>
+
+            <div class="member_card">
+                <img src="/images/team_img/Глеб.png" alt="">
+                <p>
+                    Глеб
+                    <br>Контент-мейкер
+                </p>
+            </div>
+
+            <div class="member_card">
+                <img src="/images/team_img/Дмитрий.png" alt="">
+                <p>
+                    Дмитрий
+                    <br>Дизайнер
+                </p>
+            </div>
+
+            <div class="member_card">
+                <img src="/images/team_img/Александр_2.jpg" alt="">
+                <p>
+                    Александр
+                    <br>Идейный вдохновитель
+                </p>
+            </div>
+            
+        </div>
 
     </div>
 </div>
 
 <!-- contacts -->
-<div class="contacts">
-    <div class="container">
+<div class="contacts" id="contacts_page">
+    <div class="container" id="container_mod">
+        
+        <div class="inner">
+            <h2 class="title">Контакты</h2>
+        </div>
+
+        <div class="map">
+            <p class="address">Россия, 400005, Волгоград, пр. им. Ленина, 28 
+                <br>(8442) 23-00-76
+                <br>email: mango10102001@gmail.com
+            </p>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1316.2572318489008!2d44.52780227094218!3d48.714760598344185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x411acb2c30fd5ee5%3A0x1d029c2e9564348d!2z0L_RgC4g0LjQvNC10L3QuCDQki7QmC4g0JvQtdC90LjQvdCwLCAyOCwg0JLQvtC70LPQvtCz0YDQsNC0LCDQktC-0LvQs9C-0LPRgNCw0LTRgdC60LDRjyDQvtCx0LsuLCA0MDAwMDU!5e0!3m2!1sru!2sru!4v1622304664788!5m2!1sru!2sru" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        
+        </div>
         
     </div>
 </div>
 
-
+<script src="script.js"></script>
 </body>
 </html>
