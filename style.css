@@ -298,6 +298,16 @@ body {
     width: 250px;
 }
 
+.btn_send {
+
+    background: white;
+    color: rgb(56, 83, 83);
+    margin: 10px;
+
+    transition: opacity .1s linear;
+
+    border-radius: 5px;
+}
 /*
 ==================
     mobile
