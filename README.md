@@ -1,7 +1,12 @@
 # Worker_OnLine_web
-This is my first web page for project in discipline "system analysis" 
+Проект по дисциплине "системный анализ"
 
-This repository is a landing page of the Worker_OnLine project, which will help people working in dangerous professions.
+Этот репозиторий содержит "одностраничник" к проекту Worker_OnLine.
 
-You should open file index.html with your browser.
-There are you can see demonstration of one main part of project - working with MQTT protoсol. (not finished)
+Имеется две ветки "master" и "MQTT". 
+
+В ветке "master" проект с одностраничником. Для просмотра открыть файл index_html.
+В ветке "MQTT" проект с демонстрацией работы с протоколом MQTT на NodeJS.
+
+
+С реализацией ветки "MQTT" помог LastLow098(https://github.com/LastLow098).
