@@ -200,28 +200,32 @@
 
         <div class="call_back_fields">
 
-            <div class="fio">
-                <div class="call_back_name">Ваше имя</div>
-                <div class="call_back_input">
-                    <input class="call_back_input_field" type="text">
-                </div>
-            </div>
+            <form id="form">
 
-            <div class="email">
-                <div class="call_back_name">Ваш e-mail</div>
-                <div class="call_back_input">
-                    <input class="call_back_input_field" type="text">
+                <div class="fio">
+                    <div class="call_back_name">Ваше имя</div>
+                    <div class="call_back_input">
+                        <input class="call_back_input_field" type="text" name="fio">
+                    </div>
                 </div>
-            </div>
 
-            <div class="message">
-                <div class="call_back_name">Ваш текст</div>
-                <div class="call_back_input">
-                    <textarea class="call_back_input_field" name="" id="" cols="30" rows="10"></textarea>
+                <div class="email">
+                    <div class="call_back_name">Ваш e-mail</div>
+                    <div class="call_back_input">
+                        <input class="call_back_input_field" type="text" name="email">
+                    </div>
                 </div>
-            </div>
 
-            <button class="btn_send">
+                <div class="message">
+                    <div class="call_back_name">Ваш текст</div>
+                    <div class="call_back_input">
+                        <textarea class="call_back_input_field" name="info" id="" cols="30" rows="10"></textarea>
+                    </div>
+                </div>
+
+            </form>
+
+            <button class="btn_send" id="btn_send">
                 Отправить форму
             </button>
 

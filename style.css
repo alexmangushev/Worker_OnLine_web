@@ -330,7 +330,7 @@ body {
     color: rgb(56, 83, 83);
     margin: 10px;
 
-    transition: opacity .1s linear;
+    /*transition: opacity .1s linear;*/
 
     border-radius: 5px;
 }
