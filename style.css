@@ -149,9 +149,24 @@ body {
 }
 
 .discription_1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
     width: 40%;
-    text-align: justify
-    ;
+
+    text-align: justify;
+}
+
+.picture {
+    margin: 10px 0;
+    width: 90%;
+}
+
+.picture_3 {
+    margin: 10px 0;
+    width: 50%;
 }
 
 /*
