@@ -31,25 +31,6 @@ MQTT_on.onclick = function() {
         message: type_message_MQTT
     }
     setTimeout(send, 500, message_MQTT);
-/*    const message_MQTT_JSON = JSON.stringify(message_MQTT);
-
-    console.log(message_MQTT_JSON);
-
-    //отправляем данные через POST запрос /api/MQTT
-    fetch('http://localhost:3000/api/MQTT', {
-        method: 'POST', //тип запроса
-        body: message_MQTT_JSON, // данные 
-        headers: {
-        'Content-Type': 'application/json'
-        }
-    }).then(function(response) {
-        if (response.ok) {
-            console.log("MQTT_ok")
-        }
-        else {
-            console.log("MQTT_something wrong")
-        }
-    })*/
 
 }
 
@@ -62,28 +43,7 @@ MQTT_off.onclick = function() {
     }
     setTimeout(send, 500, message_MQTT);
 
-    /*const message_MQTT_JSON = JSON.stringify(message_MQTT);
-
-    console.log(message_MQTT_JSON);
-
-    //отправляем данные через POST запрос /api/MQTT
-    fetch('http://localhost:3000/api/MQTT', {
-        method: 'POST', //тип запроса
-        body: message_MQTT_JSON, // данные 
-        headers: {
-        'Content-Type': 'application/json'
-        }
-    }).then(function(response) {
-        if (response.ok) {
-            console.log("MQTT_ok")
-        }
-        else {
-            console.log("MQTT_something wrong")
-        }
-    })*/
 }
-
-
 
 /*
 * inputs names
