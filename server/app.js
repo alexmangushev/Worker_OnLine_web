@@ -3,6 +3,7 @@ const { Sequelize, DataTypes, Model } = require('sequelize');
 const app =express()
 const validator = require('validator').default;
 const cors = require('cors')
+var mqtt = require('mqtt');
 
 const sequelize = new Sequelize('worker_online_clients', 'Worker_OnLine_User', '12345', {
     host: 'localhost',
@@ -67,6 +68,47 @@ function start_App() {
         } else {
             const Order_From_DB = await Order.create (Data_Order)
             res.send(Order_From_DB)
+        }
+
+    })
+
+    //обрабатываем POST запрос /api/MQTT
+    app.post('/api/MQTT', async function (req, res) {
+        const Data_MQTT = req.body;
+
+        console.log(Data_MQTT.message);
+
+        var client = mqtt.connect('mqtt://broker.mqttdashboard.com',{
+          will: {
+            topic: 'scooter1',
+            qos: 0,
+            retain: false
+          }
+        });
+
+        if (Data_MQTT.message == "on")
+        {
+            
+            client.publish('scooter1', ';on', 
+            {
+                qos: 0
+            }, () => {})
+            console.log('включаю')
+            
+
+
+        } else 
+        {
+            if (Data_MQTT.message == "off")
+            {
+                
+                client.publish('scooter1', ';of', 
+                {
+                    qos: 0
+                }, () => {})
+                console.log('выключаю')
+                
+            }
         }
 
     })

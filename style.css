@@ -339,12 +339,16 @@ body {
     mobile
 ==================
 */
-@media (min-width: 577px) and (max-width: 992px) {
+@media (max-width: 992px) {
     .we {
         --cols-num: 2;
     }
     .product_discription {
         --cols-num: 1;
+    }
+
+    .picture {
+        width: 300px;
     }
 }
 
