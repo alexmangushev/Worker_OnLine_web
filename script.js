@@ -34,11 +34,23 @@ btn_in.onclick = function() {
     }
 
     const message_info_JSON = JSON.stringify(message_info);
-    console.log(message_info_JSON);
 
-    /*console.log(fio);
-    console.log(email);
-    console.log(message);*/
-    
+    //console.log(message_info_JSON); 
+
+    //отправляем данные через POST запрос /api/order
+    fetch('http://localhost:3000/api/order', {
+        method: 'POST', //тип запроса
+        body: message_info_JSON, // данные 
+        headers: {
+        'Content-Type': 'application/json'
+        }
+    }).then(function(response) {
+        if (response.ok) {
+            console.log("ok")
+        }
+        else {
+            console.log("something wrong")
+        }
+    })
 
 }
