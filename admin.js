@@ -63,6 +63,14 @@ async function loginSubmit(event) {
       password: password_Value
     })
   })
+  //если ответ верный то сверяем токен показываем содержимое DB
+  if (response.ok) {
+    const tokenInfo = await response.json()
+    localStorage.setItem('Token', tokenInfo.token)
+    renderOrders()
+  }
+}
+
 
 
 //получаем данные из базы и отправляем их
@@ -87,12 +95,5 @@ async function renderOrders() {
   }
 }
 
-  //если ответ верный то сверяем токен показываем содержимое DB
-  if (response.ok) {
-    const tokenInfo = await response.json()
-    localStorage.setItem('Token', tokenInfo.token)
-    renderOrders()
-  }
-}
 
 renderOrders()
