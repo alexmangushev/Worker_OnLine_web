@@ -3,6 +3,7 @@ const { Sequelize, DataTypes, Model } = require('sequelize');
 const app =express()
 const validator = require('validator').default;
 const cors = require('cors')
+const { createToken, verifyToken, createPasswordHash, comparePassword } = require('./auth-service')
 var mqtt = require('mqtt');
 
 const sequelize = new Sequelize('worker_online_clients', 'Worker_OnLine_User', '12345', {
@@ -11,6 +12,7 @@ const sequelize = new Sequelize('worker_online_clients', 'Worker_OnLine_User', '
   });
 
 class Order extends Model {}
+class Admin extends Model {}
 
 //функция для задания полей объектов, создаваемых в базе данных
 function stringType() {
@@ -27,6 +29,14 @@ Order.init({
 }, {
       modelName: 'Order',
       sequelize
+})
+
+Admin.init({
+    name: stringType(),
+    password: stringType(),
+}, {
+    modelName: 'Admin',
+    sequelize
 })
 
 start() //старт сервера
@@ -49,6 +59,35 @@ function start_App() {
 
     app.get('/', function(req, res) {
         res.send('Hello from express')
+    })
+
+    app.post('/api/admin', async function (req, res) {
+        const password_Hesh = createPasswordHash(req.body.password)
+        const new_Admin = await Admin.create({
+            name: req.body.name,
+            password: password_Hesh
+        })
+        res.send(new_Admin)
+    })
+
+    app.post('/api/login', async function (req, res) {
+        const user_From_DB = await Admin.findOne({ where: { name: req.body.name } })
+        if (comparePassword(req.body.password, user_From_DB.password)) {
+            const token = createToken(user_From_DB)
+            res.send({
+                token
+            })
+        } else {
+            res.status(403).send({
+                message: 'Wrong password'
+            })
+        }
+    })
+
+    //получение сообщений из базы данных для админа
+    app.get('/api/order', verifyToken, async function (req, res) {
+        const orders = await Order.findAll()
+        res.send(orders)
     })
 
     //обрабатываем POST запрос /api/order

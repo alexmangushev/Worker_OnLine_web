@@ -4,7 +4,8 @@ const MQTT_off = document.getElementById('btn_off')
 function send(message_MQTT) {
     const message_MQTT_JSON = JSON.stringify(message_MQTT);
 
-    console.log(message_MQTT_JSON);
+    //console.log(message_MQTT_JSON);
+    alert("Сообщение отправлено")
 
     //отправляем данные через POST запрос /api/MQTT
     fetch('http://localhost:3000/api/MQTT', {

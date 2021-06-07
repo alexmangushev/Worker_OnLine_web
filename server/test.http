@@ -6,3 +6,28 @@ Content-Type: application/json
     "email": "mango@gmail.com",
     "message": "message"
 }
+
+###
+
+POST http://localhost:3000/api/admin
+Content-Type: application/json
+
+{
+    "name": "Mango",
+    "password": "12345"
+}
+
+###
+
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+    "name": "Mango",
+    "password": "12345"
+}
+
+###
+
+GET http://localhost:3000/api/order
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjIzMDIwNjM5LCJleHAiOjE2MjMxOTM0Mzl9.2iZ98Z1aSmtHP_ud9EFi_i0z5Bp6P_l8PDwVRWkXGQM

@@ -1,0 +1,19 @@
+.login-form {
+    border-radius: 5px;
+    border: 1px solid darkslategrey;
+    height: fit-content;
+    width: 400px;
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.btn-login {
+    display: block;
+    margin: auto;
+    margin-top: 1rem;
+}
