@@ -4,12 +4,20 @@ const app =express()
 const validator = require('validator').default;
 const cors = require('cors')
 const { createToken, verifyToken, createPasswordHash, comparePassword } = require('./auth-service')
-var mqtt = require('mqtt');
+const mqtt = require('mqtt')
+
+const client = mqtt.connect('mqtt://broker.hivemq.com',{
+    will: {
+    topic: 'scooter1',
+    qos: 0,
+    retain: false
+    }
+});
 
 const sequelize = new Sequelize('worker_online_clients', 'Worker_OnLine_User', '12345', {
     host: 'localhost',
     dialect: 'mysql'
-  });
+});
 
 class Order extends Model {}
 class Admin extends Model {}
@@ -19,6 +27,17 @@ function stringType() {
     return {
         type: DataTypes.STRING,
         allowNull: false
+    }
+}
+
+//подключение к бд
+async function start_DB() {
+    try {
+        await sequelize.authenticate()
+        await sequelize.sync()
+        console.log('Successful DB connection');
+    } catch (error) {
+        console.error(error)
     }
 }
 
@@ -39,21 +58,13 @@ Admin.init({
     sequelize
 })
 
-start() //старт сервера
-
-//подключение к бд и старт сервера
-async function start() {
-    try {
-        await sequelize.authenticate()
-        await sequelize.sync()
-        console.log('Successful DB connection');
-        start_App()
-    } catch (error) {
-        console.error(error)
-    }
-}
+start_App() //старт сервера
 
 function start_App() {
+
+    //подключаемся к DB
+    start_DB()
+
     app.use(cors())
     app.use(express.json())
 
@@ -61,19 +72,32 @@ function start_App() {
         res.send('Hello from express')
     })
 
-    app.post('/api/admin', async function (req, res) {
+    //создаем админа
+    /*app.post('/api/admin', async function (req, res) {
+
+        //создаем hesh пароля
         const password_Hesh = createPasswordHash(req.body.password)
+
+        //создаем админа и отправляем его в базу данных
         const new_Admin = await Admin.create({
             name: req.body.name,
             password: password_Hesh
         })
         res.send(new_Admin)
-    })
+    })*/
 
+    //логинимся
     app.post('/api/login', async function (req, res) {
+
+        //Ищем в базе данных пользователя с переданным именем
         const user_From_DB = await Admin.findOne({ where: { name: req.body.name } })
+
+        //проверяем на совпадение пароли
         if (comparePassword(req.body.password, user_From_DB.password)) {
+
+            //создаем токен и отправляем его на страницу авторизации
             const token = createToken(user_From_DB)
+
             res.send({
                 token
             })
@@ -116,14 +140,6 @@ function start_App() {
         const Data_MQTT = req.body;
 
         console.log(Data_MQTT.message);
-
-        var client = mqtt.connect('mqtt://broker.mqttdashboard.com',{
-          will: {
-            topic: 'scooter1',
-            qos: 0,
-            retain: false
-          }
-        });
 
         if (Data_MQTT.message == "on")
         {

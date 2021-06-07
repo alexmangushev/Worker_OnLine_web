@@ -43,13 +43,16 @@ function ordersPage(orders = []) {
 } 
 
 
+//авторизация админа
 async function loginSubmit(event) {
   event.preventDefault()
   const form = event.target
 
+  //вытаскиваем логин и пароль из формы
   const login_Value = form.login.value;
   const password_Value = form.password.value;
 
+  //отправляем POST запрос с данными на страницу авторизации
   const response = await fetch(`${domain}/api/login`, {
     method: 'POST',
     headers: {
@@ -60,33 +63,36 @@ async function loginSubmit(event) {
       password: password_Value
     })
   })
+
+
+//получаем данные из базы и отправляем их
+async function renderOrders() {
+  const token = localStorage.getItem('Token')
+
+  if (token) {
+  const response = await fetch(`${domain}/api/order`, {
+      headers: {
+      'Authorization': token
+      }
+  })
+
+  if (response.ok) {
+      const orders = await response.json()
+      root.innerHTML = ordersPage(orders)
+  } else {
+      root.innerHTML = login_Page
+  }
+  } else {
+  root.innerHTML = login_Page
+  }
+}
+
+  //если ответ верный то сверяем токен показываем содержимое DB
   if (response.ok) {
     const tokenInfo = await response.json()
     localStorage.setItem('Token', tokenInfo.token)
     renderOrders()
   }
-}
-
-//получаем данные
-async function renderOrders() {
-    const token = localStorage.getItem('Token')
-
-    if (token) {
-    const response = await fetch(`${domain}/api/order`, {
-        headers: {
-        'Authorization': token
-        }
-    })
-
-    if (response.ok) {
-        const orders = await response.json()
-        root.innerHTML = ordersPage(orders)
-    } else {
-        root.innerHTML = login_Page
-    }
-    } else {
-    root.innerHTML = login_Page
-    }
 }
 
 renderOrders()
