@@ -15,4 +15,4 @@ npm start
 
 Реализация опытной модели для принятия MQTT сообщений: https://github.com/alexmangushev/STM32_Basic_MQTT
 
-С реализацией ветки "MQTT" помог LastLow098(https://github.com/LastLow098).
+С реализацией MQTT помог LastLow098(https://github.com/LastLow098).
