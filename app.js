@@ -1,3 +1,4 @@
+// @ts-check
 const express = require('express')
 const { Sequelize, DataTypes, Model } = require('sequelize');
 const app =express()
@@ -5,8 +6,12 @@ const validator = require('validator').default;
 const cors = require('cors')
 const { createToken, verifyToken, createPasswordHash, comparePassword } = require('./auth-service')
 const mqtt = require('mqtt')
+const path = require('path')
+
+const port = process.env.PORT || 3000
 
 const client = mqtt.connect('mqtt://broker.hivemq.com',{
+    // @ts-ignore
     will: {
     topic: 'scooter1',
     qos: 0,
@@ -68,9 +73,9 @@ function start_App() {
     app.use(cors())
     app.use(express.json())
 
-    app.get('/', function(req, res) {
+    /*app.get('/', function(req, res) {
         res.send('Hello from express')
-    })
+    })*/
 
     //создаем админа
     /*app.post('/api/admin', async function (req, res) {
@@ -93,6 +98,7 @@ function start_App() {
         const user_From_DB = await Admin.findOne({ where: { name: req.body.name } })
 
         //проверяем на совпадение пароли
+        // @ts-ignore
         if (comparePassword(req.body.password, user_From_DB.password)) {
 
             //создаем токен и отправляем его на страницу авторизации
@@ -168,7 +174,9 @@ function start_App() {
 
     })
     
-    app.listen(3000, function() {
-        console.log('Server started at http://localhost:3000');
+    app.use(express.static(path.join(__dirname, 'public')))
+
+    app.listen(port, function() {
+        console.log('Server started at http://localhost:' + port);
     })
 }

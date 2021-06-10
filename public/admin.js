@@ -36,7 +36,7 @@ function ordersPage(orders = []) {
           <td>${order.message}</td>
         </tr>
         `
-      })}
+      }).join(' ')}
     </tbody>
     </table>
   `
