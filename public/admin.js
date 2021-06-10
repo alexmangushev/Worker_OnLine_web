@@ -1,5 +1,5 @@
 const root = document.getElementById('root')
-const domain = 'http://localhost:3000'
+const domain = ''
 
 const login_Page = /* html */`
 <form class="login-form" onsubmit="loginSubmit(event)">
